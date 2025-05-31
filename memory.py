@@ -4,7 +4,7 @@ from typing import List
 from generate_chatgpt import simplify_memory_with_gpt
 
 class MemoryEntry:
-    def __init__(self, day, time, event, reaction, entry_id=None):
+    def __init__(self, entry_id, day, time, event, reaction):
         self.entry_id = entry_id
         self.day = day
         self.time = time
@@ -23,20 +23,22 @@ class MemoryEntry:
     @staticmethod
     def from_dict(data):
         return MemoryEntry(
-            entry_id=data["entry_id"],
+            entry_id=int(data.get("entry_id", 0)),
             day=data["day"],
             time=data["time"],
             event=data["event"],
             reaction=data["reaction"]
         )
 
-def load_npc_memory(name: str, folder="memory_data") -> List[MemoryEntry]:
+def load_npc_memory(name: str, folder="memory_data") -> list[MemoryEntry]:
     path = os.path.join(folder, f"{name}.json")
     if not os.path.exists(path):
+        print(f"[load_npc_memory] No file found for {name}, returning empty memory list.")
         return []
 
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
+        print(f"[load_npc_memory] Loaded {len(data)} memory entries for {name}.")
         return [MemoryEntry.from_dict(entry) for entry in data]
 
 def save_npc_memory(name: str, memory_list: List[MemoryEntry], folder="memory_data"):
@@ -47,15 +49,8 @@ def save_npc_memory(name: str, memory_list: List[MemoryEntry], folder="memory_da
     print(f"[✓] Memory saved for {name} at {path}")
 
 def get_next_entry_id(memory_list: List[MemoryEntry]) -> int:
-    ids = []
-    for entry in memory_list:
-        try:
-            ids.append(int(entry.entry_id))
-        except (ValueError, TypeError):
-            continue
-    if not ids:
-        return 1
-    return max(ids) + 1
+    ids = [entry.entry_id for entry in memory_list if isinstance(entry.entry_id, int)]
+    return max(ids, default=0) + 1
 
 def add_memory_entry(name: str, day: int, time: str, raw_event: str, raw_reaction: str, folder="memory_data"):
     memory_list = load_npc_memory(name, folder)

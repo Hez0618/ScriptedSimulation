@@ -65,24 +65,45 @@ Example:
 
 
 def generate_npc_action_reaction(npc, action):
+    all_events = [m['event'] for m in npc.memory]
+    all_reactions = [m['reaction'] for m in npc.memory]
+
     prompt = f"""
-NPC: {npc.name}
-Background: {' '.join(npc.background)}
-Action Today: {action}
-Recent Memory: {' '.join([m['event'] for m in npc.memory[-3:]])}
+You are simulating the behavior of a fictional character involved in a mysterious train murder.
 
-Based on this action and background, describe:
-1. What exactly happens? (event)
-2. What does the NPC think or feel? (reaction)
+NPC Name: {npc.name}
+Background Summary: {' '.join(npc.background)}
 
-Respond in the format:
+Current Day Action: {action}
+
+Recent Events:
+{" | ".join(all_events)}
+
+Recent Reactions:
+{" | ".join(all_reactions)}
+
+Context:
+- On Day 1, Marcus was found dead in his cabin. The train stopped suddenly right after.
+- All characters had hidden motives or plans involving Marcus.
+- Nobody knows who exactly killed him, and everyone is trying to hide, investigate, or understand what happened.
+- NPCs only know their own background, memories, and what they've seen or felt. They should never mention knowledge they don’t logically have.
+- Avoid repeating murder or overly dramatic actions unless it's grounded in memory.
+- Focus on subtle, realistic, psychological and investigative behavior.
+
+Your task:
+1. Describe what the NPC does based on their background, today's action, and recent memories.
+2. Describe their inner thoughts, feelings, or suspicions in reaction to that event.
+
+Format strictly:
 Event: ...
 Reaction: ...
 """
+
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}]
     )
+
     content = response.choices[0].message.content.strip()
     lines = content.split("\n")
     event = ""
@@ -93,6 +114,7 @@ Reaction: ...
         elif line.lower().startswith("reaction:"):
             reaction = line.split(":", 1)[1].strip()
     return event, reaction
+
 
 def generate_npc_exploration_reaction(npc, clue, owner=False):
     prompt = f"""
