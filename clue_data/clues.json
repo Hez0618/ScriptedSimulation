@@ -1,0 +1,28 @@
+[
+    {
+        "clue_id": 1,
+        "name": "Boxing Champion Photo",
+        "description": "A photo of Ethan with a boxing champion, showing his underground past.",
+        "location": [
+            "Train",
+            "Carriage 10",
+            "Room 2",
+            "Ethan's Room"
+        ],
+        "owner": "Ethan",
+        "owner_memory": "This photo reminds me of my days fighting in underground boxing rings."
+    },
+    {
+        "clue_id": 2,
+        "name": "Secret Letter",
+        "description": "A letter revealing hidden business between Jax and Marcus.",
+        "location": [
+            "Train",
+            "Carriage 9",
+            "Room 5",
+            "Wardrobe"
+        ],
+        "owner": "Jax",
+        "owner_memory": "This letter made me realize Marcus is involved in shady deals."
+    }
+]
