@@ -1,23 +1,39 @@
-# 🕵️ ScriptedSimulation
 <p align="center">
-  <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/cover.png" alt="ScriptedSimulation Cover" width="80%">
+  <img src="https://github.com/你的GitHub用户名/ScriptedSimulation/raw/main/cover.png" alt="ScriptedSimulation Cover" width="80%">
 </p>
-**ScriptedSimulation** is an AI-driven NPC behavior simulation set in a narrative-driven environment inspired by classic murder mysteries like *Murder on the Orient Express*.  
 
-On the first day, all NPCs harbor their own grudges and motives against the soon-to-be victim — Marcus. As the day unfolds, each character secretly initiates a plan. By nightfall, Marcus is dead.
+<h1 align="center">🕵️ ScriptedSimulation</h1>
 
-But the twist? Everyone has something to hide.
+<p align="center">
+  An AI-driven NPC simulation inspired by murder mysteries like <i>Murder on the Orient Express</i>.  
+  Everyone had a reason. Everyone had a secret. But only one night to hide the truth.
+</p>
 
-NPCs now begin to interact with each other, investigate, cover their own tracks, and try to uncover what others have done — all powered by a dynamic AI behavior system.
+---
+
+## 🧩 Overview
+
+**ScriptedSimulation** is a multi-agent narrative simulator where every NPC has its own motive, plan, and behavior.  
+Set on a moving train, all characters secretly orchestrate their actions on Day One — culminating in the shocking murder of Marcus.
+
+But the real story begins after his death.
+
+NPCs now explore, cover their tracks, interrogate each other, and piece together the truth — all powered by dynamic AI behavior models.
 
 ---
 
 ## 🔍 Features
 
-- 🎭 Multi-agent AI planning and deception
-- 🧠 Modular behavior architecture (state machines, decision trees, or LLM-assisted logic)
-- 🔄 Chain-reaction event simulation
-- 🕵️ Suspicion tracking and dynamic dialogue
-- 🎮 Sandbox-style scenario replay
+- 🎭 Multi-NPC autonomous behavior simulation
+- 🧠 Modular AI logic (state machines, behavior trees, or LLM integration)
+- 🔄 Dynamic suspicion and event tracking
+- 🗨️ Emergent dialogue and character discovery
+- 🎮 Replayable sandbox murder-mystery scenarios
 
 ---
+
+## 📷 Cover Preview
+
+<p align="center">
+  <img src="https://github.com/你的GitHub用户名/ScriptedSimulation/raw/main/cover.png" alt="Scene Preview" width="60%">
+</p>
