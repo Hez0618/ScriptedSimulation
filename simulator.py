@@ -2,7 +2,16 @@ import random
 import os
 import json
 from memory import add_memory_entry, MemoryEntry, save_npc_memory
-from generate_chatgpt import generate_npc_daily_plan_with_schedule_and_time, generate_npc_action_reaction, generate_npc_exploration_reaction
+from generate_chatgpt import generate_npc_daily_plan_with_schedule_and_time, generate_npc_action_reaction, generate_npc_exploration_reaction, generate_dialogue_between, simplify_memory_with_gpt
+
+def generate_random_times(n, start_hour=6, end_hour=22):
+    times = set()
+    while len(times) < n:
+        hour = random.randint(start_hour, end_hour)
+        minute = random.randint(0, 59)
+        times.add(f"{hour:02d}:{minute:02d}")
+    return sorted(times)
+
 
 def initialize_npc_memory(npc, npc_data_folder="npc_data", memory_folder="memory_data"):
 
@@ -36,8 +45,6 @@ def initialize_npc_memory(npc, npc_data_folder="npc_data", memory_folder="memory
     print(f"[init] Initialized memory for {npc.name} with {len(memory_list)} entries.")
 
 def simulate_day(day: int, npcs: list, world) -> list[dict]:
-    for npc in npcs:
-        initialize_npc_memory(npc)
     logs = []
     all_clues = world.get_all_clues()
     # 先记录一天开始的事件
@@ -49,16 +56,39 @@ def simulate_day(day: int, npcs: list, world) -> list[dict]:
             "reaction": ""
         })
 
-        # 生成每日计划，带时间点（如你之前想要的“早餐后探索”“午餐后探索”）
-        plan = generate_npc_daily_plan_with_schedule_and_time(npc)
-        # 假设计划对应的时间点（可根据需要改）
-        times = ["08:00", "12:00", "18:00"]
+        if len(npcs) >= 2 and random.random() < 0.5:  # 50% 概率触发
+            npc1, npc2 = random.sample(npcs, 2)
+            dialogue_time = generate_random_times(1)[0]  # 生成随机对话时间
+            dialogue = generate_dialogue_between(npc1, npc2)
+            logs.append({
+                "npc": f"{npc1.name} & {npc2.name}",
+                "time": dialogue_time,
+                "event": "Dialogue",
+                "reaction": dialogue
+            })
 
-        for action, action_time in zip(plan, times):
-            print(action)
+            lines = dialogue.splitlines()
+            for line in lines:
+                if not line.strip():
+                    continue
+                if line.startswith(f"{npc1.name}:"):
+                    content = line[len(npc1.name) + 1:].strip()
+                    # 简化对话文本
+                    event_simplified, reaction_simplified = simplify_memory_with_gpt(f"Spoke to {npc2.name}", content)
+                    add_memory_entry(npc1.name, day, "dialogue", event_simplified, reaction_simplified)
+                elif line.startswith(f"{npc2.name}:"):
+                    content = line[len(npc2.name) + 1:].strip()
+                    event_simplified, reaction_simplified = simplify_memory_with_gpt(f"Spoke to {npc1.name}", content)
+                    add_memory_entry(npc2.name, day, "dialogue", event_simplified, reaction_simplified)
+
+    for npc in npcs:
+        num_actions = random.randint(2, 4)  # 每人每天活动数
+        time_slots = generate_random_times(num_actions)
+
+        plan = generate_npc_daily_plan_with_schedule_and_time(npc)
+        for action, action_time in zip(plan, time_slots):
+            # 行动本体
             event, reaction = generate_npc_action_reaction(npc, action)
-            print(event)
-            print(reaction)
             logs.append({
                 "npc": npc.name,
                 "time": action_time,
@@ -82,15 +112,16 @@ def simulate_day(day: int, npcs: list, world) -> list[dict]:
                 raw_reaction=reaction
             )
 
-            # 每次活动后，模拟探索（假设探索和活动交替进行）
+            # 探索部分
             if all_clues:
                 clue = random.choice(all_clues)
                 is_owner = clue.get("owner") == npc.name
                 reaction = generate_npc_exploration_reaction(npc, clue, owner=is_owner)
 
+                explore_time = f"{action_time} + exploration"
                 logs.append({
                     "npc": npc.name,
-                    "time": f"{action_time} + exploration",
+                    "time": explore_time,
                     "event": f"Explored {clue.get('location', 'unknown location')} and found clue: {clue['name']}",
                     "reaction": reaction
                 })
@@ -98,7 +129,7 @@ def simulate_day(day: int, npcs: list, world) -> list[dict]:
                 npc.memory.append({
                     "id": len(npc.memory) + 1,
                     "day": day,
-                    "time": f"{action_time} + exploration",
+                    "time": explore_time,
                     "event": f"Explored {clue.get('location', 'unknown location')} and found clue: {clue['name']}",
                     "reaction": reaction
                 })
@@ -106,7 +137,7 @@ def simulate_day(day: int, npcs: list, world) -> list[dict]:
                 add_memory_entry(
                     name=npc.name,
                     day=day,
-                    time=f"{action_time} + exploration",
+                    time=explore_time,
                     raw_event="default event",
                     raw_reaction=reaction
                 )

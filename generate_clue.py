@@ -8,24 +8,33 @@ def main():
     clues = [
         Clue(
             clue_id=1,
-            name="Boxing Champion Photo",
-            description="A photo of Ethan with a boxing champion, showing his underground past.",
-            location=["Train", "Carriage 10", "Room 2", "Ethan's Room"],
+            name="Family Photo",
+            description="A photo tucked in a wallet, showing a mother, an older brother(Ethan), and a younger sister.",
+            location=["Train", "Carriage 10", "Room 2", "Wallet"],
             owner="Ethan",
-            owner_memory="This photo reminds me of my days fighting in underground boxing rings."
+            owner_memory="This photo reminds me of what I lost — my mother and sister."
         ),
+
         Clue(
             clue_id=2,
-            name="Secret Letter",
-            description="A letter revealing hidden business between Jax and Marcus.",
-            location=["Train", "Carriage 9", "Room 5", "Wardrobe"],
-            owner="Jax",
-            owner_memory="This letter made me realize Marcus is involved in shady deals."
+            name="Wanted Poster",
+            description="A newspaper clipping showing a wanted notice for Marcus, 25, slim build, wearing a dark hoodie. Dated: November 13, 2007.",
+            location=["Train", "Carriage 10", "Room 2", "Journal"],
+            owner="Ethan",
+            owner_memory="I've kept this for years. It's my only lead on Marcus — burned into my memory."
+        ),
+
+        Clue(
+            clue_id=3,
+            name="Charm Pendant",
+            description="A small charm with a hidden note: 'Son... I'm watching over you. — Jan 19, 2008'.",
+            location=["Train", "Carriage 10", "Room 2 Ethan's Coat", "Lining"],
+            owner="Ethan",
+            owner_memory="My mother gave me this charm when I was born. I kept it close — her last words still echo."
         )
         # 可以继续添加更多Clue实例
     ]
 
-    # 把Clue对象转换成dict列表
     clues_data = [clue.__dict__ for clue in clues]
 
     with open("clue_data/clues.json", "w", encoding="utf-8") as f:

@@ -2,11 +2,13 @@ from generate_chatgpt import generate_chatgpt_response
 import json
 
 class NPC:
-    def __init__(self, name, age, background, memory):
+    def __init__(self, name, age, background, memory, dialogue_score = 0, dialogue_ready = False):
         self.name = name
         self.age = age
         self.background = background
         self.memory= memory or []
+        self.dialogue_score = dialogue_score
+        self.dialogue_ready = dialogue_ready
 
     def add_memory(self, memory):
         if isinstance(memory, Memory):

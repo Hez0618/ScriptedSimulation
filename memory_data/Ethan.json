@@ -1,0 +1,163 @@
+[
+    {
+        "entry_id": 1,
+        "day": 1,
+        "time": "22:00",
+        "event": "The train departs. I sit in my cabin (Car 10, Room 2), waiting for the attendant to check rooms.",
+        "reaction": "I'm planning to steal her passenger log after she passes."
+    },
+    {
+        "entry_id": 2,
+        "day": 1,
+        "time": "22:50",
+        "event": "The attendant reaches my car. She looks familiar. I quietly follow her to see where she goes.",
+        "reaction": "Is she connected to Angel’s case?"
+    },
+    {
+        "entry_id": 3,
+        "day": 1,
+        "time": "23:15",
+        "event": "She leaves the attendant's room in Car 9. I sneak in and grab the passenger log.",
+        "reaction": "No one saw me. I need to find Marcus."
+    },
+    {
+        "entry_id": 4,
+        "day": 1,
+        "time": "23:30",
+        "event": "After some searching, I find Marcus’s cabin and take a photo of his info. I ditch the log in Car 10.",
+        "reaction": "It’s time. I can’t let him get away."
+    },
+    {
+        "entry_id": 5,
+        "day": 1,
+        "time": "00:05",
+        "event": "With my knife ready, I sneak into Marcus’s room and stab him in the chest three times while he sleeps.",
+        "reaction": "One for Angel, one for Mom, and one for myself."
+    },
+    {
+        "entry_id": 6,
+        "day": 1,
+        "time": "00:08",
+        "event": "I go to the restroom and wash the blood from the knife.",
+        "reaction": "Stay calm. No one saw me."
+    },
+    {
+        "entry_id": 7,
+        "day": 1,
+        "time": "00:10",
+        "event": "I return to my cabin and hide the knife.",
+        "reaction": "It' s over. I just need to act normal now."
+    },
+    {
+        "entry_id": 8,
+        "day": 1,
+        "time": "00:15",
+        "event": "Suddenly, a loud crash—then the train comes to a halt.",
+        "reaction": "What happened? Did someone find the body already?"
+    },
+    {
+        "entry_id": 9,
+        "day": 1,
+        "time": "13:46",
+        "event": "Ethan wakes early to exercise strenuously in his cabin, keeping fit for combat.",
+        "reaction": "Ethan's workout triggers memories of his family's loss, fueling his vengeance against Marcus, but he suppresses his emotions, staying composed to deal with the fallout of Marcus's death."
+    },
+    {
+        "entry_id": 10,
+        "day": 1,
+        "time": "13:46 + exploration",
+        "event": "Ethan finds a 2007 wanted poster.",
+        "reaction": "Ethan's heart pounds, realizing this could lead him to Marcus."
+    },
+    {
+        "entry_id": 11,
+        "day": 1,
+        "time": "14:50",
+        "event": "Ethan discreetly watches the dining car passengers for suspicious activity post lunch.",
+        "reaction": "Haunted by his past and driven by the need to solve Marcus's murder, Ethan intently scrutinizes each passenger, his heart pounding with determination."
+    },
+    {
+        "entry_id": 12,
+        "day": 1,
+        "time": "14:50 + exploration",
+        "event": "Default event",
+        "reaction": "Ethan, filled with determination, resolves to avenge his family's tragedy."
+    },
+    {
+        "entry_id": 13,
+        "day": 1,
+        "time": "16:21",
+        "event": "Ethan covertly investigates the cargo hold at night, looking for packages linked to Marcus's illicit activities.",
+        "reaction": "Overwhelmed by memories of past tragedies, Ethan, shrouded in darkness, anxiously and determinedly searches for clues to Marcus's secrets in the cargo hold, hoping to find closure for his family's loss."
+    },
+    {
+        "entry_id": 14,
+        "day": 1,
+        "time": "16:21 + exploration",
+        "event": "Default event.",
+        "reaction": "Ethan angrily clenches his fists, fueled by pain and a resolve for his family's justice."
+    },
+    {
+        "entry_id": 15,
+        "day": 2,
+        "time": "dialogue",
+        "event": "Spoke with Jax.",
+        "reaction": "Doubted Jax's real motives for being there."
+    },
+    {
+        "entry_id": 16,
+        "day": 2,
+        "time": "dialogue",
+        "event": "I spoke with Jax.",
+        "reaction": "I distrust you, suspecting your involvement in the train's illicit actions."
+    },
+    {
+        "entry_id": 17,
+        "day": 2,
+        "time": "dialogue",
+        "event": "Talked with Jax.",
+        "reaction": "Clarified my neutrality to Jax and cautioned him about the risks of dishonesty."
+    },
+    {
+        "entry_id": 18,
+        "day": 2,
+        "time": "14:47",
+        "event": "Ethan begins his day with an early-morning, intense workout in his cabin.",
+        "reaction": "During his workout, Ethan is haunted by his family's loss, fueling his desire for revenge against Marcus, while maintaining a stoic facade to deal with the fallout of Marcus's death."
+    },
+    {
+        "entry_id": 19,
+        "day": 2,
+        "time": "14:47 + exploration",
+        "event": "Ethan clenches a wanted poster.",
+        "reaction": "He swears with fierce determination to avenge his sister's death."
+    },
+    {
+        "entry_id": 20,
+        "day": 2,
+        "time": "19:14",
+        "event": "Ethan quietly watches the other dining car passengers post-lunch, searching for anything unusual.",
+        "reaction": "As Ethan scrutinizes the passengers, past tragedies and emotions resurface, fueling his determination to solve Marcus's murder and bring closure to his past, all while maintaining a calm demeanor."
+    },
+    {
+        "entry_id": 21,
+        "day": 2,
+        "time": "19:14 + exploration",
+        "event": "default event",
+        "reaction": "Ethan grits his teeth, filled with anger and sorrow as he looks at the family picture, promising to avenge his family."
+    },
+    {
+        "entry_id": 22,
+        "day": 2,
+        "time": "22:24",
+        "event": "Ethan covertly investigates the cargo hold at night for any packages linked to Marcus's illicit deeds.",
+        "reaction": "Haunted by past tragedies, Ethan meticulously searches the cargo hold, driven by a mix of determination and desperation to find closure by uncovering Marcus's secrets."
+    },
+    {
+        "entry_id": 23,
+        "day": 2,
+        "time": "22:24 + exploration",
+        "event": "Ethan reads the hidden note on the charm pendant.",
+        "reaction": "Shocked, he feels a surge of mixed emotions."
+    }
+]

@@ -38,7 +38,7 @@ def load_npc_memory(name: str, folder="memory_data") -> list[MemoryEntry]:
 
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
-        print(f"[load_npc_memory] Loaded {len(data)} memory entries for {name}.")
+        #print(f"[load_npc_memory] Loaded {len(data)} memory entries for {name}.")
         return [MemoryEntry.from_dict(entry) for entry in data]
 
 def save_npc_memory(name: str, memory_list: List[MemoryEntry], folder="memory_data"):
@@ -46,7 +46,7 @@ def save_npc_memory(name: str, memory_list: List[MemoryEntry], folder="memory_da
     path = os.path.join(folder, f"{name}.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump([entry.to_dict() for entry in memory_list], f, indent=4, ensure_ascii=False)
-    print(f"[✓] Memory saved for {name} at {path}")
+    #print(f"[✓] Memory saved for {name} at {path}")
 
 def get_next_entry_id(memory_list: List[MemoryEntry]) -> int:
     ids = [entry.entry_id for entry in memory_list if isinstance(entry.entry_id, int)]

@@ -2,7 +2,7 @@ import os
 import json
 from npc import NPC
 from world_structure import create_world_from_clues
-from simulator import simulate_day
+from simulator import simulate_day, initialize_npc_memory
 
 def load_all_npcs(npc_folder="npc_data"):
     npcs = []
@@ -19,24 +19,34 @@ def load_all_npcs(npc_folder="npc_data"):
             npcs.append(npc)
     return npcs
 
+
+def print_pretty_logs(day, logs):
+    print(f"\n===== 🗓️ Day {day} Logs =====\n")
+    for log in logs:
+        npc = log["npc"]
+        time = log["time"]
+        event = log["event"]
+        reaction = log["reaction"]
+
+        print(f"🕒 {time} | 👤 {npc}")
+        print(f"📝 Event: {event}")
+        if reaction.strip():
+            print(f"💭 Reaction: {reaction}")
+        print("-" * 60)
+
+
 if __name__ == "__main__":
     # 1. Load world
     world = create_world_from_clues("clue_data/clues.json")
 
     # 2. Load NPCs
     npcs = load_all_npcs()
+    for npc in npcs:
+        initialize_npc_memory(npc)
 
-    # 3. Simulate Day 2
-    day = 2
-    logs = simulate_day(day, npcs, world)
+        # 3. Simulate
+    total_days = 2  # 你想模拟的总天数
 
-    # 4. Print logs
-    print(f"\n--- Day {day} Simulation Log ---\n")
-    for entry in logs:
-        if "system" in entry:
-            print(entry["system"])
-        else:
-            print(f"{entry['npc']} at {entry['time']}:")
-            print(f"  Event: {entry['event']}")
-            print(f"  Reaction: {entry['reaction']}")
-            print()
+    for day in range(1, total_days + 1):
+        logs = simulate_day(day, npcs, world)
+        print_pretty_logs(day, logs)

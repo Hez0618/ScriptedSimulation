@@ -2,7 +2,7 @@ import openai
 import json
 from openai import OpenAI
 
-openai.api_key = "Your-API-key"
+openai.api_key = "sk-proj-QPIt7HyuQmsWU8rEMzkoT3BlbkFJKbccPzdsXBcxe9qoiBsS"
 client = OpenAI(api_key=openai.api_key)
 
 def generate_chatgpt_response(system_prompt: str, user_prompt: str, max_tokens=60, temperature=0.8) -> str:
@@ -177,3 +177,35 @@ Reaction: <simplified reaction>
         print(f"[!] GPT parsing failed, using original text: {e}")
 
     return simplified_event, simplified_reaction
+
+def generate_dialogue_between(npc1, npc2):
+    memory1 = '\n'.join([f"- {m['event']}" for m in npc1.memory[-5:]])
+    memory2 = '\n'.join([f"- {m['event']}" for m in npc2.memory[-5:]])
+
+    prompt = f"""
+NPC1: {npc1.name}
+Background: {' '.join(npc1.background)}
+
+NPC2: {npc2.name}
+Background: {' '.join(npc2.background)}
+
+Recent Memory of {npc1.name}:
+{memory1}
+
+Recent Memory of {npc2.name}:
+{memory2}
+
+They meet in the train corridor and start a conversation based on what they’ve recently experienced.
+Write a natural and tense short dialogue (3~5 turns each), showing suspicion, alliance or tension.
+
+Format:
+{npc1.name}: ...
+{npc2.name}: ...
+...
+"""
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    return f"[Dialogue between {npc1.name} and {npc2.name}]\n" + response.choices[0].message.content.strip()
