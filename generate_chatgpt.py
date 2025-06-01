@@ -2,7 +2,7 @@ import openai
 import json
 from openai import OpenAI
 
-openai.api_key = "sk-proj-QPIt7HyuQmsWU8rEMzkoT3BlbkFJKbccPzdsXBcxe9qoiBsS"  # 记得替换成你的key，或者用环境变量更安全
+openai.api_key = "Your-API-key"
 client = OpenAI(api_key=openai.api_key)
 
 def generate_chatgpt_response(system_prompt: str, user_prompt: str, max_tokens=60, temperature=0.8) -> str:
