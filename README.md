@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/你的GitHub用户名/ScriptedSimulation/raw/main/cover.png" alt="ScriptedSimulation Cover" width="80%">
+  <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/cover.png" alt="ScriptedSimulation Cover" width="80%">
 </p>
 
 <h1 align="center">🕵️ ScriptedSimulation</h1>
@@ -31,9 +31,3 @@ NPCs now explore, cover their tracks, interrogate each other, and piece together
 - 🎮 Replayable sandbox murder-mystery scenarios
 
 ---
-
-## 📷 Cover Preview
-
-<p align="center">
-  <img src="https://github.com/你的GitHub用户名/ScriptedSimulation/raw/main/cover.png" alt="Scene Preview" width="60%">
-</p>
