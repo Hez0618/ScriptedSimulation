@@ -28,7 +28,7 @@ def main():
             clue_id=3,
             name="Charm Pendant",
             description="A small charm with a hidden note: 'Son... I'm watching over you. — Jan 19, 2008'.",
-            location=["Train", "Carriage 10", "Room 2 Ethan's Coat", "Lining"],
+            location=["Train", "Carriage 10", "Room 2", "Ethan's Coat"],
             owner="Ethan",
             owner_memory="My mother gave me this charm when I was born. I kept it close — her last words still echo."
         )

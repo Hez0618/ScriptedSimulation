@@ -2,7 +2,7 @@ import openai
 import json
 from openai import OpenAI
 
-openai.api_key = "Your-API-Key"
+openai.api_key = "sk-proj-QPIt7HyuQmsWU8rEMzkoT3BlbkFJKbccPzdsXBcxe9qoiBsS"
 client = OpenAI(api_key=openai.api_key)
 
 def generate_chatgpt_response(system_prompt: str, user_prompt: str, max_tokens=60, temperature=0.8) -> str:
@@ -209,3 +209,52 @@ Format:
     )
 
     return f"[Dialogue between {npc1.name} and {npc2.name}]\n" + response.choices[0].message.content.strip()
+
+
+def generate_npc_choose_location(npc, options: list[str]):
+    all_events = [m['event'] for m in npc.memory]
+    all_reactions = [m['reaction'] for m in npc.memory]
+
+    prompt = f"""
+You are {npc.name}, a suspect on a train where a murder just happened.
+
+- You must hide your own secrets while investigating others.
+- You only know your own memories and background.
+- Choose ONE place or object to explore next from the options below.
+- Be subtle, strategic, and stay in character.
+
+Recent memories:
+{" | ".join(all_events)}
+
+Recent thoughts:
+{" | ".join(all_reactions)}
+
+Options:
+{', '.join(options)}
+
+Format EXACTLY:
+Choice: <your choice>
+Reasoning: <brief why you choose this>
+"""
+
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.7,
+        max_tokens=150
+    )
+
+    content = response.choices[0].message.content.strip()
+    choice = ""
+    reasoning = ""
+    for line in content.split("\n"):
+        if line.lower().startswith("choice:"):
+            choice = line.split(":", 1)[1].strip()
+        elif line.lower().startswith("reasoning:"):
+            reasoning = line.split(":", 1)[1].strip()
+
+    # 防止输出不在选项里的值
+    if choice not in options:
+        choice = options[0]
+
+    return choice, reasoning

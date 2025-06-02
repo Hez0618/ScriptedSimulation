@@ -1,7 +1,7 @@
 import os
 import json
 from npc import NPC
-from world_structure import create_world_from_clues
+from world_structure import initialize_world, get_train_room_structure
 from simulator import simulate_day, initialize_npc_memory
 
 def load_all_npcs(npc_folder="npc_data"):
@@ -37,16 +37,18 @@ def print_pretty_logs(day, logs):
 
 if __name__ == "__main__":
     # 1. Load world
-    world = create_world_from_clues("clue_data/clues.json")
-
-    # 2. Load NPCs
+    world = initialize_world("clue_data/clues.json")
+    print(get_train_room_structure(world))
+    # 2. Load NPCs’s memory and initialize
     npcs = load_all_npcs()
+
     for npc in npcs:
-        initialize_npc_memory(npc)
+       initialize_npc_memory(npc)
+
 
         # 3. Simulate
-    total_days = 2  # 你想模拟的总天数
+    total_days = 3  # 你想模拟的总天数
 
-    for day in range(1, total_days + 1):
+    for day in range(2, total_days + 1):
         logs = simulate_day(day, npcs, world)
         print_pretty_logs(day, logs)
