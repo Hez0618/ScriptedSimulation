@@ -91,13 +91,9 @@ def add_non_clue_nodes_batch(root: WorldNode, nodes: list[dict]):
             print(f"fail to add node: {e}")
 
 def get_train_room_structure(root: WorldNode) -> str:
-    """
-    返回火车的整体结构（只展示车厢和房间，不包含物品）
-    """
     def helper(node: WorldNode, level=0):
         indent = "  " * level
         lines = [f"{indent}- {node.name}"]
-        # 只往下展示两层结构：Carriage -> Rooms
         if level < 2:
             for child in node.children.values():
                 lines.extend(helper(child, level + 1))
@@ -127,18 +123,12 @@ def get_room_explorables(root: WorldNode, path: list[str]) -> str:
     return "\n".join(lines)
 
 def check_for_clue(root: WorldNode, path: list[str]) -> Optional[dict]:
-    """
-    判断指定路径物品是否包含线索，返回线索字典或 None
-    """
     node = root.find_node_by_path(path[1:])
     if node and node.clue:
         return node.clue
     return None
 
 def initialize_world(clue_file_path: str) -> WorldNode:
-    """
-    初始化世界结构，加载线索数据并添加无线索节点，返回根节点WorldNode。
-    """
     world = create_world_from_clues(clue_file_path)
 
     nodes_to_add = [
