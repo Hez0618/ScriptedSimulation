@@ -32,7 +32,7 @@ def main():
             owner="Ethan",
             owner_memory="My mother gave me this charm when I was born. I kept it close — her last words still echo."
         )
-        # 可以继续添加更多Clue实例
+        # More Clues to add
     ]
 
     clues_data = [clue.__dict__ for clue in clues]
