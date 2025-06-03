@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/cover.png" alt="ScriptedSimulation Cover" width="80%">
+  <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/Cover/cover.png" alt="ScriptedSimulation Cover" width="80%">
 </p>
 
 <h1 align="center">🕵️ ScriptedSimulation</h1>
@@ -32,7 +32,7 @@ NPCs now explore, cover their tracks, interrogate each other, and piece together
 > Live snapshots of simulation output, memory logs, and character interaction.  
 
 <p align="center">
-  <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/log_snapshot.png" alt="Log Snapshot" width="70%">
+  <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/Cover/log_snapshot.png" alt="Log Snapshot" width="90%">
 </p>
 
 ---
