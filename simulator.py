@@ -64,9 +64,9 @@ def simulate_day(day: int, npcs: list, world) -> list[dict]:
             "reaction": ""
         })
 
-        if len(npcs) >= 2 and random.random() < 0.2:  # 50% 概率触发
+        if len(npcs) >= 2 and random.random() < 0.2: 
             npc1, npc2 = random.sample(npcs, 2)
-            dialogue_time = generate_random_times(1)[0]  # 生成随机对话时间
+            dialogue_time = generate_random_times(1)[0] 
             dialogue = generate_dialogue_between(npc1, npc2)
             logs.append({
                 "npc": f"{npc1.name} & {npc2.name}",
@@ -81,7 +81,7 @@ def simulate_day(day: int, npcs: list, world) -> list[dict]:
                     continue
                 if line.startswith(f"{npc1.name}:"):
                     content = line[len(npc1.name) + 1:].strip()
-                    # 简化对话文本
+                    
                     event_simplified, reaction_simplified = simplify_memory_with_gpt(f"Spoke to {npc2.name}", content)
                     add_memory_entry(npc1.name, day, "dialogue", event_simplified, reaction_simplified)
                 elif line.startswith(f"{npc2.name}:"):
@@ -90,7 +90,7 @@ def simulate_day(day: int, npcs: list, world) -> list[dict]:
                     add_memory_entry(npc2.name, day, "dialogue", event_simplified, reaction_simplified)
 
     for npc in npcs:
-        num_actions = random.randint(2, 4)  # 每人每天活动数
+        num_actions = random.randint(2, 4)
         time_slots = generate_random_times(num_actions)
 
         plan = generate_npc_daily_plan_with_schedule_and_time(npc)
@@ -172,11 +172,8 @@ def simulate_day(day: int, npcs: list, world) -> list[dict]:
 
             else:
             #TODO
-                print("!!!!!!!!!!!!!!!!")
-                print(selected_node.name)
                 print(selected_node.description)
 
-            # 探索部分
             """
             if all_clues:
                 clue = random.choice(all_clues)
