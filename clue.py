@@ -1,6 +1,19 @@
 import json
 
 class Clue:
+    """
+    Clue Instance
+    A clue contains identifying information, a description,
+    locations, its current owner, and the owner's memory or interpretation.
+    
+    Args:
+    clue_id: Unique identifier for the clue
+    name: Name of the Clue
+    description: Detailed explanation of what the clue is
+    location: List of possible locations related to the clue.
+    owner: Name of the character currently holding the clue.
+    owner_memory: Description of the owner's memory or perspective of the clue.
+    """
     def __init__(self, clue_id, name, description, location, owner, owner_memory):
         self.clue_id = clue_id
         self.name = name
