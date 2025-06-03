@@ -255,7 +255,6 @@ Reasoning: <brief why you choose this>
         elif line.lower().startswith("reasoning:"):
             reasoning = line.split(":", 1)[1].strip()
 
-    # 防止输出不在选项里的值
     if choice not in options:
         choice = options[0]
 
