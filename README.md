@@ -6,8 +6,13 @@
 
 <p align="center">
   An AI-driven NPC simulation inspired by murder mysteries like <i>Murder on the Orient Express</i>.  
-  Everyone had a reason. Everyone had a secret. But only one night to hide the truth.
+  Everyone had a reason. Everyone had a secret. But everything changes on the night Marcus is found dead.
 </p>
+
+---
+
+> ⚠️ **Note**: This is a prototype / work-in-progress project.  
+> Core systems are functional, but the full simulation is still under development.
 
 ---
 
@@ -22,6 +27,20 @@ NPCs now explore, cover their tracks, interrogate each other, and piece together
 
 ---
 
+## 📸 Screenshots
+
+> Live snapshots of simulation output, memory logs, and character interaction.  
+
+<p align="center">
+  <img src="screenshots/sample_event_log.png" alt="NPC Event Log" width="70%">
+</p>
+
+<p align="center">
+  <img src="screenshots/sample_dialogue.png" alt="Sample Dialogue" width="70%">
+</p>
+
+---
+
 ## 🔍 Features
 
 - 🎭 Multi-NPC autonomous behavior simulation
@@ -31,3 +50,7 @@ NPCs now explore, cover their tracks, interrogate each other, and piece together
 - 🎮 Replayable sandbox murder-mystery scenarios
 
 ---
+## 🔐 API Key Notice
+
+This project uses OpenAI’s API for behavior simulation.  
+You’ll need to provide your own API key to run it:
