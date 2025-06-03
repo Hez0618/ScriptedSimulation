@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/Cover/cover.png" alt="ScriptedSimulation Cover" width="80%">
+  <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/Cover/cover.png" alt="ScriptedSimulation Cover" width="85%">
 </p>
 
 <h1 align="center">🕵️ ScriptedSimulation</h1>
