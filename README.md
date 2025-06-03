@@ -32,11 +32,7 @@ NPCs now explore, cover their tracks, interrogate each other, and piece together
 > Live snapshots of simulation output, memory logs, and character interaction.  
 
 <p align="center">
-  <img src="screenshots/sample_event_log.png" alt="NPC Event Log" width="70%">
-</p>
-
-<p align="center">
-  <img src="screenshots/sample_dialogue.png" alt="Sample Dialogue" width="70%">
+  <img src="screenshots/sample.png" alt="Log Snapshot" width="70%">
 </p>
 
 ---
