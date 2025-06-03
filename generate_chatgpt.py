@@ -2,7 +2,10 @@ import openai
 import json
 from openai import OpenAI
 
-openai.api_key = "sk-proj-QPIt7HyuQmsWU8rEMzkoT3BlbkFJKbccPzdsXBcxe9qoiBsS"
+# !!! IMPORTANT !!!
+# This script requires a valid OpenAI API key to run.
+# Replace with your own OpenAI API key
+openai.api_key = "YOUR-API-KEY"
 client = OpenAI(api_key=openai.api_key)
 
 def generate_chatgpt_response(system_prompt: str, user_prompt: str, max_tokens=60, temperature=0.8) -> str:
@@ -53,7 +56,6 @@ Example:
     try:
         return json.loads(content)
     except json.JSONDecodeError:
-        # 简单解析fallback
         plan = []
         for line in content.split('\n'):
             if line.strip().startswith('{') and line.strip().endswith('}'):
