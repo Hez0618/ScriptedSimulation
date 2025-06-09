@@ -40,9 +40,7 @@
 
 ---
 
-## 📸 結果のサンプル / Result Sample
-
-> Live snapshots of simulation output, memory logs, and character interaction.  
+## 📸 結果のサンプル / Result Sample 
 
 ### 🕵️‍♂️ 事件の概要（第一日目）
 - 物語の舞台は密閉された列車内。登場するすべてのNPCは、それぞれマーカス（Marcus）に対して恨みや秘密を抱えており、第一日目の夜、彼に対して何らかの行動を計画していた。
