@@ -2,34 +2,54 @@
   <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/Cover/projectCover.png" alt="ScriptedSimulation Cover" width="85%">
 </p>
 
-<h1 align="center">🕵️ ScriptedSimulation</h1>
+<h1 align="center">　ScriptedSimulation</h1>
 
 <p align="center">
-  An AI-driven NPC simulation inspired by murder mysteries like <i>Murder on the Orient Express</i>.  
-  Everyone had a reason. Everyone had a secret. But everything changes on the night Marcus is found dead.
+  ミステリーの舞台を想定した、AI駆動のNPCシミュレーションシステム。
+  各キャラクターは記憶・性格・行動構造を持ち、スクリプトとAIによって動的に反応を行います。
 </p>
 
 ---
 
-> ⚠️ **Note**: This is a prototype / work-in-progress project.  
-> Core systems are functional, but the full simulation is still under development.
+> ⚠️ 注意：本プロジェクトはプロトタイプ / 開発中の作品です。
+>  コアシステムは動作していますが、完全なシミュレーションは現在も開発中です。
 
 ---
 
-## 🧩 Overview
+## 🧩　概要 / Overview
 
-**ScriptedSimulation** is a multi-agent narrative simulator where every NPC has its own motive, plan, and behavior.  
-Set on a moving train, all characters secretly orchestrate their actions on Day One — culminating in the shocking murder of Marcus.
-
-But the real story begins after his death.
-
-NPCs now explore, cover their tracks, interrogate each other, and piece together the truth — all powered by dynamic AI behavior models.
+- **Scripted Simulation** はマーダーミステリのシナリオ設定のもとで構築された、NPC行動生成シミュレーションシステムです。
+- PythonスクリプトとJSONファイルによって、NPCごとの記憶内容や内部状態を記録・管理。
+- 各NPCには、性格や**バックグラウンド**が与えられており、それに基づいた言動を行います。
+- これらの構造化された情報をもとに、生成AI（ChatGPT）がNPCのセリフや行動を動的に生成します。
 
 ---
 
-## 📸 Screenshots
+## 🌐 マップ構造 / Map Structure
+
+- この世界はツリー構造で構成されています。
+- 列車 (事件が発生する舞台)
+- 　└──　車両 1
+-   |   　└──　部屋 1 (Aさんの部屋) 
+-   |           　└──　机 ("木製の古びた机。長年使われて..."のような描写)  
+- 　|             |　　  └──　事件に関する証拠の有無の判定
+-   |             └──  椅子 (...)
+-   |                    └── 事件に関する証拠の有無の判定
+-   └──  車両 2
+-   ...   
+
+---
+
+## 📸 結果のサンプル / Result Sample
 
 > Live snapshots of simulation output, memory logs, and character interaction.  
+
+### 🕵️‍♂️ 事件の概要（第一日目）
+- 物語の舞台は密閉された列車内。登場するすべてのNPCは、それぞれマーカス（Marcus）に対して恨みや秘密を抱えており、第一日目の夜、彼に対して何らかの行動を計画していた。
+- そしてその夜、マーカスは死亡した
+
+### Ethanのサンプル出力（第二日目）
+- 以下は、事件発生の翌日、NPC「イーサン（Ethan）」の状態と応答の一例です。
 
 <p align="center">
   <img src="https://github.com/Hez0618/ScriptedSimulation/raw/main/Cover/log_snapshot.png" alt="Log Snapshot" width="90%">
@@ -37,16 +57,22 @@ NPCs now explore, cover their tracks, interrogate each other, and piece together
 
 ---
 
-## 🔍 Features
+## 📝 TODOリスト
 
-- 🎭 Multi-NPC autonomous behavior simulation
-- 🧠 Modular AI logic (state machines, behavior trees, or LLM integration)
-- 🔄 Dynamic suspicion and event tracking
-- 🗨️ Emergent dialogue and character discovery
-- 🎮 Replayable sandbox murder-mystery scenarios
+- リフレクションシステム
+      - NPCの出来事や会話を要約・振り返る仕組みの実装
+- 位置追跡機能
+      - NPCがどの車両・部屋にいるかを記録・参照できるようにする
+
+- 🛠️ 技術面の強化（実装）
+      - ローカル環境でのデプロイ対応
+      - 多言語対応
+      - 情報の可視化ツール
+      - プレイヤーとのインタラクション機能
 
 ---
-## 🔐 API Key Notice
 
-This project uses OpenAI’s API for behavior simulation.  
-You’ll need to provide your own API key to run it:
+## 🔐 APIキーについて / About API key
+
+- 本プロジェクトでは、NPCの行動シミュレーションに**OpenAIのAPI**を使用しています。
+- 実行するには、ご自身のAPIキーを用意して設定する必要があります。
